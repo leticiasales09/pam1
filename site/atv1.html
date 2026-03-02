@@ -1,12 +1,104 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>atv1</title>
+    <title>Formulario</title>
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
 </head>
 <body>
     <h1>Atividade 1:</h1>
+    <!--<h1>Meu primeiro formulário</h1>
+    <form autocomplete="off">
+        <p><label for="in1">Número 1:</label> 
+            <input type="number" name="n1" id="in1"></p>
+
+        <p><label for="in2">Número 2:</label> 
+            <input type="number" name="n2" id="in2"></p>
+
+            <p id="resul">Seu resultado aqui: </p>
+            <button type="button" onclick="calcular()">Calcular</button>
+
+            <script>
+                function calcular(){
+                let n1= Number(document.getElementById("in1").value);
+                let n2= Number(document.getElementById("in2").value);
+                let res= n1+n2;
+                document.getElementById("resul").textContent= "Seu resultado aqui: "+res;
+                }
+            </script> -->
+
+    <form autocomplete="off">
+        <p><label for="in1">Número 1:</label> 
+            <input type="number" name="n1" id="in1"></p>
+            
+        <p><label for="in2">Número 2:</label> 
+            <input type="number" name="n2" id="in2"></p>
+
+        <p><label for="in3">Número 3:</label> 
+            <input type="number" name="n3" id="in3"></p>
+
+        <p><label for="in4">Número 4:</label> 
+            <input type="number" name="n4" id="in4"></p>
+
+            <p id="resul">Seu resultado aqui:</p>
+
+            <button type="button" onclick="calcular_n1()">Calcular 1</button>
+            <button type="button" onclick="calcular_n123()">Calcular 2</button>
+            <button type="button" onclick="calcular_n1234()">Calcular 3</button>
+            
+
+            <script>
+                function calcular_n1(){
+                let n1= Number(document.getElementById("in1").value);
+                let res1=n1*2;
+                let res2=n1*3;
+                let res3=n1*4;
+                let res4=n1*5;
+                let res5=n1*6;
+                let res6=Math.pow(n1,2);
+                let res7=Math.pow(n1,3);
+                let res8=Math.pow(n1,4);
+                let res9=Math.pow(n1,5);
+                let res10=Math.pow(n1,6);
+                document.getElementById("resul").textContent= `Número "${n1}": Dobro: ${res1}, Triplo: ${res2}, Quaduplo: ${res3}, Quintuplo: ${res4}, Sextuplo: ${res5}, Quadrado: ${res6}, Cubo ${res7}, Quarta Potencia: ${res8}, Quinta Potencia: ${res9}, Sexta Potencia: ${res10}`;
+            }
+
+            function calcular_n123(){
+                let a = Number(document.getElementById("in1").value);
+                let b = Number(document.getElementById("in2").value);
+                let c = Number(document.getElementById("in3").value);
+                let delta = (b*b) - (4*a*c);
+
+                if (a == 0){
+                    document.getElementById("resul").textContent = "Não é equação do segundo grau (a não pode ser 0";return;
+                }
+                if (delta < 0){
+                    document.getElementById("resul").textContent = `Delta = ${delta}, não existem raízes reais.`;
+                } 
+                else {
+                    let x1 = (-b + Math.sqrt(delta)) / (2*a);
+                    let x2 = (-b - Math.sqrt(delta)) / (2*a);
+                    
+                    document.getElementById("resul").textContent =
+                    `Delta = ${delta}, x1 = ${x1} e x2 = ${x2}`;
+                }
+            }
+
+            function calcular_n1234(){
+                let n1= Number(document.getElementById("in1").value);
+                let n2= Number(document.getElementById("in2").value);
+                let n3= Number(document.getElementById("in3").value);
+                let n4= Number(document.getElementById("in4").value);
+
+                let med = (n1+n2+n3+n4)/4
+                document.getElementById("resul").innerHTML= `O resultado dá media dos 4 números é de: ${med}`;
+                }
+            </script>
+    </form>
 </body>
 </html>
