@@ -54,7 +54,7 @@
             <button type="button" onclick="calcular_n1()">Calcular 1</button>
             <button type="button" onclick="calcular_n123()">Calcular 2</button>
             <button type="button" onclick="calcular_n1234()">Calcular 3</button>
-            
+            <button type="button" onclick="calcular_impar()">Calcular 4</button>
 
             <script>
                 function calcular_n1(){
@@ -72,7 +72,7 @@
                 document.getElementById("resul").textContent= `Número "${n1}": Dobro: ${res1}, Triplo: ${res2}, Quaduplo: ${res3}, Quintuplo: ${res4}, Sextuplo: ${res5}, Quadrado: ${res6}, Cubo ${res7}, Quarta Potencia: ${res8}, Quinta Potencia: ${res9}, Sexta Potencia: ${res10}`;
             }
 
-            function calcular_n123(){
+             function calcular_n123(){
                 let a = Number(document.getElementById("in1").value);
                 let b = Number(document.getElementById("in2").value);
                 let c = Number(document.getElementById("in3").value);
@@ -102,6 +102,46 @@
                 let med = (n1+n2+n3+n4)/4
                 document.getElementById("resul").innerHTML= `O resultado dá media dos 4 números é de: ${med}`;
                 }
+
+            function calcular_impar(){
+                document.getElementById("resul").innerHTML = "";
+
+                let n1= Number(document.getElementById("in1").value);
+                let r1 = n1%2;
+                if (r1==0) {
+                    document.getElementById("resul").innerHTML+= `O número ${n1} é par! <br>`;
+                }
+                else {
+                    document.getElementById("resul").innerHTML+= `O número ${n1} é impar!!<br>`;
+                }
+
+                let n2= Number(document.getElementById("in2").value);
+                let r2 = n2%2;
+                if (r2==0) {
+                    document.getElementById("resul").innerHTML+= `O número ${n2} é par!<br>`;
+                }
+                else{
+                    document.getElementById("resul").innerHTML+= `O número ${n2} é impar!!<br>`;
+                }
+
+                let n3= Number(document.getElementById("in3").value);
+                let r3 = n3%2;
+                if (r3==0) {
+                    document.getElementById("resul").innerHTML+= `O número ${n3} é par!<br>`;
+                }
+                else{
+                    document.getElementById("resul").innerHTML+= `O número ${n3} é impar!!<br>`;
+                }
+
+                let n4= Number(document.getElementById("in4").value);
+                let r4 = n4%2;
+                if (r4==0) {
+                    document.getElementById("resul").innerHTML+= `O número ${n4} é par!<br>`;
+                }
+                else{
+                    document.getElementById("resul").innerHTML+= `O número ${n4} é impar!!<br>`;
+                }
+            }
             </script>
     </form>
 </body>
