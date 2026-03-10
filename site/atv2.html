@@ -2,11 +2,155 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>atv2</title>
 </head>
 <body>
-    <h1>Atividade 2:</h1>
+    <form action="">
+        <h1>Atividade 2 de PAM:</h1>
+        <h2>Controle de vendas:</h2>
+
+        <h3>Produtos/Preços/Quantidades: </h3>
+        <!--Campo de checkbox-->
+        <label for="iCamisetaRegata">Camiseta Regata - 19,90R$</label>
+        <input id="iCamisetaRegata" type="checkbox">
+
+        <label for="iqtCamisetaRegata">Quantidade: </label>
+        <input id="iqtCamisetaRegata" type="number" min="0" step="1" placeholder="0" maxlength="3" minlength="1" style="width:40px;" required> <!--width=largura e height=altura-->
+
+        <br><br>
+
+        <label for="iCamisaSocial">Camisa Social - 59,90R$</label>
+        <input id="iCamisaSocial" type="checkbox">
+
+        <label for="iqtCamisaSocial">Quantidade: </label>
+        <input id="iqtCamisaSocial" type="number" min="0" step="1" placeholder="0" maxlength="3" minlength="1" style="width:40px;" required>
+
+        <br><br>
+
+        <label for="iBlusa">Blusa - 119,90R$</label>
+        <input id="iBlusa" type="checkbox">
+
+        <label for="iqtBlusa">Quantidade: </label>
+        <input id="iqtBlusa" type="number" min="0" step="1" placeholder="0" maxlength="3" minlength="1" style="width:40px;" required>
+
+        <br><br>
+
+        <label for="iSapato">Sapato - 99,90R$</label>
+        <input id="iSapato" type="checkbox">
+
+        <label for="iqtSapato">Quantidade: </label>
+        <input id="iqtSapato" type="number" min="0" step="1" placeholder="0" maxlength="3" minlength="1" style="width:40px;" required>
+
+        <br><br>
+
+        <label for="iCalca">Calça - 38,90R$</label>
+        <input id="iCalca" type="checkbox">
+
+        <label for="iqtCalca">Quantidade: </label>
+        <input id="iqtCalca" type="number" min="0" step="1" placeholder="0" maxlength="3" minlength="1" style="width:40px;" required>
+
+        <br><br>
+
+        <h3>Forma de Pagamento:</h3>
+        <label for="ivista">Á Vista</label>
+        <input id="ivista" type="radio" name="pagamento" value="avista" required>
+        <br>
+        <label for="iprazo">Á Prazo</label>
+        <input id="iprazo" type="radio" name="pagamento" value="aprazo">
+
+        <br><br>
+
+        <label for="iparcelas">Quantidade de Parcelas:</label>
+        <select id="iparcelas">
+            <option value="" disabled selected>Selecine uma opção</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+
+        <br><br>
+
+        <button type="button" onclick="calcular()">Calcular</button>
+
+        <br><br>
+    </form>
+
+    <p id="iresultado"></p>
+
+    <script>
+        function calcular(){
+            let total =0;
+
+            //Camiseta Regata
+            let CamisetaRegata= document.getElementById("iCamisetaRegata").checked;
+            let qtCamisetaRegata = Number(document.getElementById("iqtCamisetaRegata").value);
+            if (CamisetaRegata){
+
+                total = total + (qtCamisetaRegata * 19.90);
+            }
+
+            //Camisa Social
+            let CamisaSocial= document.getElementById("iCamisaSocial").checked;
+            let qtCamisaSocial = Number(document.getElementById("iqtCamisaSocial").value);
+            if (CamisaSocial){
+
+                total = total + (qtCamisaSocial * 59.90);
+            }
+
+            //blusa
+            let Blusa= document.getElementById("iBlusa").checked;
+            let qtBlusa = Number(document.getElementById("iqtBlusa").value);
+            if (Blusa){
+
+                total = total + (qtBlusa * 119,90);
+            }
+
+            //sapato
+            let Sapato= document.getElementById("iSapato").checked;
+            let qtSapato = Number(document.getElementById("iqtSapato").value);
+            if (Sapato){
+
+                total = total + (qtSapato * 99,90);
+            }
+
+            //calça
+            let Calca= document.getElementById("iCalca").checked;
+            let qtCalca = Number(document.getElementById("iqtCalca").value);
+            if (Blusa){
+
+                total = total + (qtCalca * 38,90);
+            }
+
+            //pagamento
+            let pagamento = document.querySelector('input[name="pagamento"]:checked').value;
+
+            if (pagamento=="avista"){
+                total=total-(total*0.085);
+
+                document.getElementById("iresultado").innerHTML= "Total á vista: " + total + "R$";
+            }
+
+            else{
+                let parcelas= Number(document.getElementById("iparcelas").value);
+
+                total=total+(total*0.06);
+                total=total+(parcelas*6.90);
+
+                let ValorParcela=total/parcelas;
+                if(ValorParcela<10){
+                    alert("A parcela não pode ser menor que 10R$");
+                }
+                document.getElementById("iresultado").innerHTML= "Total: R$"+total.toFixed(2)+"<br>Parcelas:"+parcelas +"<br>Valor da parcela: R$"+ValorParcela.toFixed(2);
+
+            }
+
+        }  
+    </script>
+
+    
+</body>
+</html>
 </body>
 </html>
