@@ -74,6 +74,7 @@
             let idade = document.getElementById("idade").value;
             let nota = document.getElementById("nota").value;
 
+            // validação
             if (nome === "" || idade === "" || nota === "") {
                 document.getElementById("mensagem").innerText = "Preencha tudo!";
                 return;
@@ -92,6 +93,7 @@
 
             document.getElementById("mensagem").innerText = "Cadastrado!";
 
+            // limpar
             document.getElementById("nome").value = "";
             document.getElementById("idade").value = "";
             document.getElementById("nota").value = "";
