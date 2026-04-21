@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Controle Escolar</title>
+
+    <style>
+        body {
+            background-color: rgb(238, 164, 179);
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        input {
+            display: block;
+            margin: 10px 0;
+            padding: 8px;
+            width: 200px;
+            border-radius: 15px;
+        }
+
+        button {
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 100px;
+        }
+
+        #lista div {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 15px;
+        }
+
+        hr {
+            border: none;
+            height: 3px;
+            background-color: black;
+        }
+    </style>
+
+</head>
+
+<body>
+    <hr>
+    <h1>Atividade Controle de Alunos</h1>
+
+    <form id="formAluno">
+        <input type="text" id="nome" placeholder="Nome do aluno">
+        <input type="number" id="idade" placeholder="Idade">
+        <input type="number" id="nota" placeholder="Nota (0 a 10)" step="0.1">
+        <button type="button" onclick="cadastrarAluno()">Cadastrar</button>
+    </form>
+
+    <h2>Alunos cadastrados:</h2>
+    <div id="lista"></div>
+
+    <h2>Estatísticas:</h2>
+    <p>Total: <span id="total">0</span></p>
+    <p>Média: <span id="media">0</span></p>
+    <p>Aprovados: <span id="aprovados">0</span></p>
+    <p>Reprovados: <span id="reprovados">0</span></p>
+
+    <script>
+        let alunos = [];
+
+        function cadastrarAluno() {
+            let nome = document.getElementById("nome").value;
+            let idade = document.getElementById("idade").value;
+            let nota = document.getElementById("nota").value;
+
+            if (nome === "" || idade === "" || nota === "") {
+                alert("Preencha todos os campos!");
+                return;
+            }
+
+            let aluno = {
+                nome: nome,
+                idade: Number(idade),
+                nota: Number(nota)
+            };
+
+            alunos.push(aluno);
+
+            atualizarLista();
+            atualizarEstatisticas();
+
+            document.getElementById("nome").value = "";
+            document.getElementById("idade").value = "";
+            document.getElementById("nota").value = "";
+        }
+
+        function atualizarLista() {
+            let lista = document.getElementById("lista");
+            lista.innerHTML = "";
+
+            for (let i = 0; i < alunos.length; i++) {
+                let status = "Reprovado";
+
+                if (alunos[i].nota >= 6) {
+                    status = "Aprovado";
+                }
+
+                lista.innerHTML += alunos[i].nome + " - " +
+                    alunos[i].idade + " anos - Nota: " +
+                    alunos[i].nota + " - " + status +
+                    " <button onclick='removerAluno(" + i + ")'>Remover</button>" +
+                    " <button onclick='detalhesAluno(" + i + ")'>Detalhes</button>" +
+                    "<br>";
+            }
+        }
+
+        function removerAluno(i) {
+            alunos.splice(i, 1);
+            atualizarLista();
+            atualizarEstatisticas();
+        }
+
+        function detalhesAluno(i) {
+            alert("Nome: " + alunos[i].nome +
+                "\nIdade: " + alunos[i].idade +
+                "\nNota: " + alunos[i].nota);
+        }
+
+        function atualizarEstatisticas() {
+            let total = alunos.length;
+            let soma = 0;
+            let aprovados = 0;
+
+            for (let i = 0; i < total; i++) {
+                soma = soma + alunos[i].nota;
+
+                if (alunos[i].nota >= 6) {
+                    aprovados = aprovados + 1;
+                }
+            }
+
+            let media = 0;
+            if (total > 0) {
+                media = soma / total;
+            }
+
+            document.getElementById("total").innerText = total;
+            document.getElementById("media").innerText = media;
+            document.getElementById("aprovados").innerText = aprovados;
+            document.getElementById("reprovados").innerText = total - aprovados;
+        }
+    </script>
+
+    <hr>
+
+</body>
+
+</html>
