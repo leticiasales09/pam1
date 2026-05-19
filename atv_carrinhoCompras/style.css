@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: pink;
+}
+
+h1, h2, h3 {
+    color: black;
+}
+
+#lista-produtos,
+#carrinho {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.produto,
+.item-carrinho {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+button {
+    padding: 6px 10px;
+    margin-top: 5px;
+    margin-right: 5px;
+    border: none;
+    background-color:rgb(234, 86, 128);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(233, 133, 150);
+}
+
+.filtro {
+    margin-bottom: 20px;
+}
