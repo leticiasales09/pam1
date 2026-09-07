@@ -1,18 +1,57 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { useColorScheme } from 'react-native';
+import { Tabs } from "expo-router";
+import { useEffect, useState } from "react";
+import { MovieProvider } from "../contexts/MovieContext";
+import Splash from "./splash";
 
-import { AnimatedSplashOverlay } from '@/components/animated-icon';
-import AppTabs from '@/components/app-tabs';
+export default function RootLayout() {
+  const [showSplash, setShowSplash] = useState(true);
 
-SplashScreen.preventAutoHideAsync();
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowSplash(false);
+    }, 2000);
 
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <AnimatedSplashOverlay />
-      <AppTabs />
-    </ThemeProvider>
+    <MovieProvider>
+      {showSplash ? (
+        <Splash />
+      ) : (
+        <Tabs>
+          <Tabs.Screen
+            name="index"
+            options={{
+              title: "Filmes",
+              tabBarLabel: "Filmes",
+            }}
+          />
+
+          <Tabs.Screen
+            name="add-movie"
+            options={{
+              title: "Adicionar",
+              tabBarLabel: "Adicionar",
+            }}
+          />
+
+          <Tabs.Screen
+            name="movie-details"
+            options={{
+            href: null,
+            title: "Detalhes do Filme",
+            }}
+          />
+
+          <Tabs.Screen
+            name="splash"
+            options={{
+            href: null,
+            }}
+          />
+        </Tabs>
+      )}
+    </MovieProvider>
   );
 }
