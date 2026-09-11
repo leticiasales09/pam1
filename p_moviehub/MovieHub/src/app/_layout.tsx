@@ -40,7 +40,7 @@ export default function RootLayout() {
             name="movie-details"
             options={{
             href: null,
-            title: "Detalhes do Filme",
+            title: "Detalhes:",
             }}
           />
 
