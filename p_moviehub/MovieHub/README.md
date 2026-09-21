@@ -1,4 +1,4 @@
-Este é um projeto Expo criado com o create-expo-app [Expo](https://expo.dev) [`create-expo-app`](https://www.npmjs.com/package/create-expo-app)..
+Este é um projeto Expo criado com o [Expo](https://expo.dev) [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
 Para começar, primeiro instale as dependências usando o comando 'npm install'. Depois, inicie o aplicativo usando 'npx expo start'.
 
