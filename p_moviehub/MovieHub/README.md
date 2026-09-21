@@ -15,7 +15,3 @@ Na saída de dados, você encontrará opções para abrir o aplicativo em um
 - [Expo Go](https://expo.dev/go),
 
 Para aprender mais sobre desenvolvimento com Expo, consulte a documentação do Expo, onde você encontrará informações básicas e guias para recursos mais avançados. Você também pode seguir o tutorial do Expo, que ensina a criar um aplicativo que funciona no Android, iOS e Web.
-
-Você também pode participar da comunidade do Expo para aprender, tirar dúvidas e acompanhar outros desenvolvedores
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
