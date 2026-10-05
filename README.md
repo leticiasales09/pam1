@@ -1,1 +1,1 @@
-Projetos que foram realizados para a aula de PAM (Programação e Aplicação Mobile) no curos de Desenvolvimento de Sistemas, ETEC
+Projetos que foram realizados para a aula de PAM (Programação e Aplicação Mobile) no curso de Desenvolvimento de Sistemas, ETEC
