@@ -1,4 +1,4 @@
-create database moviehub;
+create database if exists moviehub;
 
 use moviehub;
 
