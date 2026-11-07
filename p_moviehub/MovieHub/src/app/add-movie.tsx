@@ -47,25 +47,35 @@ export default function AddMovie() {
     setDataLancamento(data);
   }
 
-  function handleAddMovie() {
+  async function handleAddMovie() {
+    if (!nome || !nota || !descricao || !dataLancamento) {
+      alert("Preencha todos os campos!");
+      return;
+    }
+
     const novoFilme = {
-      id: Date.now().toString(),
+      id: "",
       nome: nome,
       nota: Number(nota),
       descricao: descricao,
       dataLancamento: dataLancamento,
     };
 
-    addMovie(novoFilme);
+    try {
+      await addMovie(novoFilme);
 
-    // Limpa o formulário
-    setNome("");
-    setNota("");
-    setDescricao("");
-    setDataLancamento("");
+      // Limpa o formulário
+      setNome("");
+      setNota("");
+      setDescricao("");
+      setDataLancamento("");
 
-    // Volta para a tela de filmes
-    router.push("/");
+      // Volta para a tela de filmes
+      router.push("/");
+    } catch (error) {
+      console.error("Erro ao adicionar filme:", error);
+      alert("Não foi possível salvar o filme.");
+    }
   }
 
   return (
